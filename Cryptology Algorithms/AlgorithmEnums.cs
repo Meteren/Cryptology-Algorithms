@@ -12,6 +12,7 @@ namespace Cryptology_Algorithms
         permutation_cipher,
         vigenere,
         caeser,
-        zigzag
+        zigzag,
+        lineer_affine,
     }
 }

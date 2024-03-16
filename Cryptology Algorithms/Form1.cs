@@ -49,5 +49,13 @@ namespace Cryptology_Algorithms
             enDecScreen.Text = "Zig Zag";
             enDecScreen.ShowDialog();
         }
+
+        private void lineer_affine_Click(object sender, EventArgs e)
+        {
+            algorithm = Algorithms.lineer_affine;
+            Form2 enDecScreen = new Form2(algorithm);
+            enDecScreen.Text = "Lineer Affine";
+            enDecScreen.ShowDialog();
+        }
     }
 }

@@ -51,6 +51,9 @@ namespace Cryptology_Algorithms
                 case Algorithms.zigzag:
                     HandleAlgorithm(algorithm, state);
                     break;
+                case Algorithms.lineer_affine:
+                    HandleAlgorithm(algorithm, state);
+                    break;
 
             }
         }
@@ -145,6 +148,24 @@ namespace Cryptology_Algorithms
                 {
                     ZigZag zigzag = new ZigZag(input.Length);
                     string decryptedData = zigzag.Decrypt(input.Trim());
+                    textBox1.Clear();
+                    textBox1.Text = decryptedData;
+                }
+            }
+
+            if (algorithm == Algorithms.lineer_affine)
+            {
+                if (state == State.encryption)
+                {
+                    LineerAffine lineerAfine = new LineerAffine();
+                    string encryptedData = lineerAfine.Encrypt(input.Trim());
+                    textBox1.Clear();
+                    textBox1.Text = encryptedData;
+                }
+                if (state == State.decryption)
+                {
+                    LineerAffine lineerAffine = new LineerAffine();
+                    string decryptedData = lineerAffine.Decrypt(input.Trim());
                     textBox1.Clear();
                     textBox1.Text = decryptedData;
                 }

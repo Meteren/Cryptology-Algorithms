@@ -102,7 +102,6 @@ namespace Cryptology_Algorithms
                     if (keyMatrix[i,j] == 'c')
                     {
                         keyMatrix[i, j] = input[count++];
-                        MessageBox.Show(keyMatrix[i, j].ToString());
                     }
                 }
             }
