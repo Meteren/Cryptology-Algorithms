@@ -17,33 +17,63 @@ namespace Cryptology_Algorithms
           this T[,] Matrix
         )
         {
+
             int top = Matrix.GetLowerBound(0)
               , bot = Matrix.GetUpperBound(0)
               , lft = Matrix.GetLowerBound(1)
               , rgt = Matrix.GetUpperBound(1);
+            
+            int count = 0;
 
             while (lft <= rgt)
             {
+                if (Matrix.Length == count)
+                {
+                    yield break;
+                }
+
                 for (int i = bot; i >= top; i--)
                 {
+                    count++;
                     yield return (Matrix[i, lft]);
                 } 
+
                 lft++;
+
+                if(Matrix.Length == count)
+                {
+                    yield break;
+                }
 
                 for (int i = lft; i <= rgt; i++)
                 {
+                        count++;
                     yield return (Matrix[top, i]);
                 } 
+
                 top++;
+
+                if (Matrix.Length == count)
+                {
+                    yield break;
+                }
 
                 for (int i = top; i <= bot; i++)
                 {
+                    count++;
                     yield return (Matrix[i, rgt]);
                 }
+
                 rgt--;
+
+                if (Matrix.Length == count)
+                {
+                    yield break;
+                }
 
                 for (int i = rgt; i >= lft; i--)
                 {
+                    count++;
                     yield return (Matrix[bot, i]);
                 }
                 bot--;
@@ -64,29 +94,57 @@ namespace Cryptology_Algorithms
               , lft = Matrix.GetLowerBound(1)
               , rgt = Matrix.GetUpperBound(1);
 
+            int count = 0;
+
             while (lft <= rgt)
             {
+                if (Matrix.Length == count)
+                {
+                    yield break;
+                }
+
                 for (int i = bot; i >= top; i--)
                 {
-                    
+                    count++;
                     yield return (i, lft);
                 }
+
                 lft++;
+
+                if (Matrix.Length == count)
+                {
+                    yield break;
+                }
 
                 for (int i = lft; i <= rgt; i++)
                 {
+                    count++;
                     yield return (top, i);
                 }
+
                 top++;
+
+                if (Matrix.Length == count)
+                {
+                    yield break;
+                }
 
                 for (int i = top; i <= bot; i++)
                 {
+                    count++;
                     yield return (i, rgt);
                 }
+
                 rgt--;
+
+                if (Matrix.Length == count)
+                {
+                    yield break;
+                }
 
                 for (int i = rgt; i >= lft; i--)
                 {
+                    count++;
                     yield return (bot, i);
                 }
                 bot--;
@@ -135,7 +193,7 @@ namespace Cryptology_Algorithms
                 {
                     if (count == input.Length)
                     {
-                        tempHolder[i, j] = preDeterminedChar;
+                        tempHolder[i, j] = preDeterminedChar; 
                     }
                     else
                     {
@@ -181,7 +239,7 @@ namespace Cryptology_Algorithms
                 for(int j = key - 1; j >= 0; j--)
                 {
                     tempList[newList[count].Item1,newList[count].Item2] = HoldCharacters![i, j];
-                    MessageBox.Show(tempList[newList[count].Item1, newList[count].Item2].ToString());
+                    //MessageBox.Show(tempList[newList[count].Item1, newList[count].Item2].ToString());
                     count++;
                 }
             }
