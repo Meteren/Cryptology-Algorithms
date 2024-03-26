@@ -15,11 +15,18 @@ namespace Cryptology_Algorithms
     {
         Algorithms algorithm;
         string input = " ";
+        TextBox textBox = new TextBox();
 
         public Form2(Algorithms algorithm)
         {
+            textBox.Location = new Point(this.Location.X + this.Size.Width -15, this.Location.Y + 10);
+            textBox.Size = new Size(25, 10);
             InitializeComponent();
             this.algorithm = algorithm;
+            if(algorithm == Algorithms.caeser)
+            {
+                this.Controls.Add(textBox);
+            }
         }
 
         private void handle_Click(object sender, EventArgs e)
@@ -52,6 +59,12 @@ namespace Cryptology_Algorithms
                     HandleAlgorithm(algorithm, state);
                     break;
                 case Algorithms.lineer_affine:
+                    HandleAlgorithm(algorithm, state);
+                    break;
+                case Algorithms.four_square:
+                    HandleAlgorithm(algorithm, state);
+                    break;
+                case Algorithms.route:
                     HandleAlgorithm(algorithm, state);
                     break;
 
@@ -121,14 +134,14 @@ namespace Cryptology_Algorithms
             {
                 if (state == State.encryption)
                 {
-                    Caeser caeser = new Caeser();
+                    Caeser caeser = new Caeser(Convert.ToInt32(textBox.Text));
                     string encryptedData = caeser.Encrypt(input.Trim());
                     textBox1.Clear();
                     textBox1.Text = encryptedData;
                 }
                 if (state == State.decryption)
                 {
-                    Caeser caeser = new Caeser();
+                    Caeser caeser = new Caeser(Convert.ToInt32(textBox.Text));
                     string decryptedData = caeser.Decrypt(input.Trim());
                     textBox1.Clear();
                     textBox1.Text = decryptedData;
@@ -166,6 +179,40 @@ namespace Cryptology_Algorithms
                 {
                     LineerAffine lineerAffine = new LineerAffine();
                     string decryptedData = lineerAffine.Decrypt(input.Trim());
+                    textBox1.Clear();
+                    textBox1.Text = decryptedData;
+                }
+            }
+            if (algorithm == Algorithms.four_square)
+            {
+                if (state == State.encryption)
+                {
+                    FourSquareCipher fourSquare = new FourSquareCipher();
+                    string encryptedData = fourSquare.Encrypt(input.Trim());
+                    textBox1.Clear();
+                    textBox1.Text = encryptedData;
+                }
+                if (state == State.decryption)
+                {
+                   FourSquareCipher fourSquare = new FourSquareCipher();
+                   string decryptedData = fourSquare.Decrypt(input.Trim());
+                   textBox1.Clear();
+                   textBox1.Text = decryptedData;
+                }
+            }
+            if (algorithm == Algorithms.route)
+            {
+                if (state == State.encryption)
+                {
+                    Route route = new Route();
+                    string encryptedData = route.Encrypt(input.Trim());
+                    textBox1.Clear();
+                    textBox1.Text = encryptedData;
+                }
+                if (state == State.decryption)
+                {
+                    Route route = new Route();
+                    string decryptedData = route.Decrypt(input.Trim());
                     textBox1.Clear();
                     textBox1.Text = decryptedData;
                 }

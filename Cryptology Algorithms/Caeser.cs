@@ -9,9 +9,10 @@ namespace Cryptology_Algorithms
     class Caeser
     {
         Dictionary<char, int> charValuePair;
-        static readonly int increment = 3;
-        public Caeser()
+        int incrementValue;
+        public Caeser(int incrementValue)
         {
+            this.incrementValue = incrementValue;
             charValuePair = new Dictionary<char, int>() {
                 { 'a' , 1 },{ 'b',2},{'c', 3},
                 { 'ç',4},{'d',5},{'e',6},{'f',7},
@@ -34,15 +35,15 @@ namespace Cryptology_Algorithms
                 {
                     if(c == kvp.Key)
                     {
-                        if(kvp.Value + increment > 29)
+                        if(kvp.Value + incrementValue > 29)
                         {
-                            int mod = kvp.Value + increment % 29;
+                            int mod = kvp.Value + incrementValue % 29;
                             keyToNumber.Add(mod);
 
                         }
                         else
                         {
-                            keyToNumber.Add(kvp.Value+increment);
+                            keyToNumber.Add(kvp.Value+incrementValue);
                         }
                         
                     }
@@ -73,14 +74,14 @@ namespace Cryptology_Algorithms
                 {
                     if (c == kvp.Key)
                     {
-                        if (kvp.Value - increment < 0)
+                        if (kvp.Value - incrementValue < 0)
                         {
-                            int mod = kvp.Value - increment + 29;
+                            int mod = kvp.Value - incrementValue + 29;
                             keyToNumber.Add(mod);
                         }
                         else
                         {
-                            keyToNumber.Add(kvp.Value - increment);
+                            keyToNumber.Add(kvp.Value - incrementValue);
                         }
 
                     }

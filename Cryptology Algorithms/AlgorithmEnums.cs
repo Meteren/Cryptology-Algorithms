@@ -14,5 +14,7 @@ namespace Cryptology_Algorithms
         caeser,
         zigzag,
         lineer_affine,
+        four_square,
+        route
     }
 }

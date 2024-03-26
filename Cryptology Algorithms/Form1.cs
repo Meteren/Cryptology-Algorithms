@@ -57,5 +57,21 @@ namespace Cryptology_Algorithms
             enDecScreen.Text = "Lineer Affine";
             enDecScreen.ShowDialog();
         }
+
+        private void four_square_Click(object sender, EventArgs e)
+        {
+            algorithm = Algorithms.four_square;
+            Form2 enDecScreen = new Form2(algorithm);
+            enDecScreen.Text = "Four Square";
+            enDecScreen.ShowDialog();
+        }
+
+        private void route_Click(object sender, EventArgs e)
+        {
+            algorithm = Algorithms.route;
+            Form2 enDecScreen = new Form2(algorithm);
+            enDecScreen.Text = "Route";
+            enDecScreen.ShowDialog();
+        }
     }
 }

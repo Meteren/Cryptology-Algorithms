@@ -35,6 +35,8 @@
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
+            button7 = new Button();
+            button8 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -79,11 +81,11 @@
             // 
             // button4
             // 
-            button4.Location = new Point(175, 259);
+            button4.Location = new Point(139, 258);
             button4.Name = "button4";
-            button4.Size = new Size(94, 29);
+            button4.Size = new Size(175, 29);
             button4.TabIndex = 4;
-            button4.Text = "Caeser";
+            button4.Text = "Caeser (kaydırmalı)";
             button4.UseVisualStyleBackColor = true;
             button4.Click += caeser_Click;
             // 
@@ -107,12 +109,34 @@
             button6.UseVisualStyleBackColor = true;
             button6.Click += lineer_affine_Click;
             // 
+            // button7
+            // 
+            button7.Location = new Point(139, 420);
+            button7.Name = "button7";
+            button7.Size = new Size(162, 29);
+            button7.TabIndex = 7;
+            button7.Text = "Four Square Cipher";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += four_square_Click;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(175, 473);
+            button8.Name = "button8";
+            button8.Size = new Size(94, 29);
+            button8.TabIndex = 8;
+            button8.Text = "Route";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += route_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(461, 430);
+            ClientSize = new Size(461, 544);
+            Controls.Add(button8);
+            Controls.Add(button7);
             Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
@@ -135,5 +159,7 @@
         private Button button4;
         private Button button5;
         private Button button6;
+        private Button button7;
+        private Button button8;
     }
 }
